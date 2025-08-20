@@ -22,7 +22,7 @@ print(f"{numeroUno}+{numeroDos}={suma}")
 
 #Salidas por consola
 
-'''print(f"Datos del partido Estadio: {nombreDelEstadio}, Ciudad: {ciudadPartido}, Asistentes partido: {numerosAsistentesPartido} .")
+print(f"Datos del partido Estadio: {nombreDelEstadio}, Ciudad: {ciudadPartido}, Asistentes partido: {numerosAsistentesPartido} .")
 print("Nombre del estadio: " +nombreDelEstadio)
 print("Ciudad del partido: " + ciudadPartido)
-print("Numero de asistentes: " + numerosAsistentesPartido)'''
+print("Numero de asistentes: " + numerosAsistentesPartido)

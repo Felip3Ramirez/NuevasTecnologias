@@ -1,0 +1,3 @@
+pip frezze : mirar librerias del hambiente virtual
+
+pip frezze > paquetes.txt : archivo que va a almacenar las configuraciones del proyecto
