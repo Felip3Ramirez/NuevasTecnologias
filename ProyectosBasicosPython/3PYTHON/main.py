@@ -1,3 +1,5 @@
+from funciones import buscarProductoPorId, eliminarProductoId
+
 # Gestionar el inventario de una tienda online
 # producto -> id, nombre, descripcion, precioUnitario, cantidadBodega
 # Generar a traves cli 
@@ -33,7 +35,7 @@ while opcionMenu != 0:
         # Debo crear un diccionario desde cero para almacenar la informacion de cada producto
         producto = {}  # Crear nuevo diccionario
         print('Ingresando un producto')
-        producto['id'] = input('Digita el id del producto a ingresar: ')
+        producto['id'] = int(input('Digita el id del producto a ingresar: '))
         producto['nombre'] = input('Digita el nombre del producto a ingresar: ')
         producto['descripcion'] = input('Digita la descripcion del producto a ingresar: ')
         producto['fotografia'] = input('Ingrese la fotografia del producto a ingresar: ')
@@ -56,6 +58,7 @@ while opcionMenu != 0:
             print('Cantidad en Bodega: ', productoSeleccionado['cantidadBodega'])
             print('-----------------------------------')
             
+    #si no hay productos en la bodega, mostrar un mensaje que no hay productos        
     elif opcionMenu == 3:
         print('Calcular costo total del inventario')
         # codigo para calcular costo total
@@ -70,40 +73,19 @@ while opcionMenu != 0:
         
     elif opcionMenu == 4:
         print('Mostrar producto en especifico')
-        # codigo para mostrar producto por ID
-        id_buscar = input('Digite el ID del producto que quiere ver: ')
-        encontrado = False
-        for producto in productos:
-            if producto['id'] == id_buscar:
-                print('Producto encontrado:')
-                print('ID: ', producto['id'])
-                print('Nombre: ', producto['nombre'])
-                print('Descripcion: ', producto['descripcion'])
-                print('Fotografia: ', producto['fotografia'])
-                print('Precio Unitario: ', producto['precioUnitario'])
-                print('Cantidad en Bodega: ', producto['cantidadBodega'])
-                encontrado = True
-        if encontrado == False:
-            print('No se encontro el producto')
+        idBuscar=int(input('Digita el Id del producto a buscar: '))
+        productoEncontrado = buscarProductoPorId(productos, idBuscar)
+        print(productoEncontrado)
+        #Si el producto encontrado es none devolver un mensaje de no encontrado
             
     elif opcionMenu == 5:
         print('Eliminar producto por ID')
-        # codigo para eliminar producto por ID
-        id_eliminar = input('Digite el ID del producto que quiere eliminar: ')
-        encontrado = False
-        for i in range(len(productos)):
-            if productos[i]['id'] == id_eliminar:
-                print('Se va a eliminar:', productos[i]['nombre'])
-                del productos[i]
-                print('Producto eliminado')
-                encontrado = True
-                break
-        if encontrado == False:
-            print('No se encontro el producto')
-            
-    elif opcionMenu == 0:
-        print('Salir')
-        break
+        idBuscar=int(input('Digita el Id del producto a eliminar: '))
+        if eliminarProductoId(productos, idBuscar):
+            print('Producto eliminado con exito')
+        else:
+            print('Producto no encontrado')    
+        
         
     else:
         print('Opcion no valida, intente de nuevo')
