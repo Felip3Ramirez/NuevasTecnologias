@@ -3,8 +3,8 @@ def buscarProductoPorId(listaProductos, idBusqueda):
     for productoSeleccionado in listaProductos:
         if productoSeleccionado['id'] == idBusqueda:
             return productoSeleccionado
-            
-    return None
+        
+    return 
 
 def eliminarProductoId (listaProductos,idObjetivo):
     for productoSeleccionado in listaProductos:

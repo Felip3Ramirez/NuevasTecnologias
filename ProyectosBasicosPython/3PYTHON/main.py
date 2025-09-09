@@ -44,11 +44,13 @@ while opcionMenu != 0:
 
         productos.append(producto)  # Lista que se carga con diccionario
         print('Producto adregado con exito \n')
+        print('-----------------------------------')
         
     elif opcionMenu == 2:
         print('Mostrar productos')
         # Debo mostrar los productos de forma ordenada 
         print('Mostrando los productos en bodega: ')
+        
         for productoSeleccionado in productos:
             print('ID: ', productoSeleccionado['id'])
             print('Nombre: ', productoSeleccionado['nombre'])
@@ -57,6 +59,9 @@ while opcionMenu != 0:
             print('Precio Unitario: ', productoSeleccionado['precioUnitario'])
             print('Cantidad en Bodega: ', productoSeleccionado['cantidadBodega'])
             print('-----------------------------------')
+        if len(productos) == 0:
+            print('No hay productos en la bodega')
+            print('-----------------------------------') 
             
     #si no hay productos en la bodega, mostrar un mensaje que no hay productos        
     elif opcionMenu == 3:
@@ -70,6 +75,10 @@ while opcionMenu != 0:
             total = total + subtotal
             print('Producto:', producto['nombre'], '- Subtotal:', subtotal)
         print('El costo total del inventario es:', total)
+        print('-----------------------------------')
+        if len(productos) == 0:
+            print('No hay productos en la bodega')
+            print('-----------------------------------') 
         
     elif opcionMenu == 4:
         print('Mostrar producto en especifico')
@@ -83,9 +92,15 @@ while opcionMenu != 0:
         idBuscar=int(input('Digita el Id del producto a eliminar: '))
         if eliminarProductoId(productos, idBuscar):
             print('Producto eliminado con exito')
+            print('-----------------------------------')
         else:
-            print('Producto no encontrado')    
+            print('Producto no encontrado')  
+            print('-----------------------------------')  
         
-        
+    elif opcionMenu == 0: 
+        print('-----------------------------------')
+        print('Saliendo del programa, hasta pronto') 
+        print('-----------------------------------')  
+        break
     else:
         print('Opcion no valida, intente de nuevo')
