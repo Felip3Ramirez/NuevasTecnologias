@@ -41,25 +41,25 @@ while opcionMenu != 0:
             print('Nombre: ', empleadoSeleccionado['nombre'])
             print('Cargo: ', empleadoSeleccionado['cargo'])
             salario = empleadoSeleccionado["horasTrabajadas"]*empleadoSeleccionado["valorHora"]
-            print( f'El salario de empleado es de {salario}')
+            print(f'El salario de empleado es de {salario}')
         if len(empleados) == 0:
             print('No hay empleados ingresados')
             print('-----------------------------------') 
             
     elif opcionMenu == 3:
-        print('Calcular total de la nomina')
-        totalNomina = 0
-        nombre = " "
+        print('Calcular costo total del inventario')
+        # codigo para calcular costo total
+        total = 0
         for empleado in empleados:
-            nombre = empleado["nombre"]
-            horas = empleado['horasTrabajadas']
-            valorHora = empleado["valorHora"]
-            subtotal = valorHora * horas
-            totalNomina = subtotal*30
-        print( f'La nomina de {nombre} es de un total de {totalNomina}')
+            precio = empleado['valorHora']
+            cantidad = empleado['horasTrabajadas']
+            subtotal = precio * cantidad
+            total = total + subtotal
+            print('nomina de ', empleado['nombre'], ' nomina ', subtotal)
+        print('El costo total de nomina es:', total)
         print('-----------------------------------')
         if len(empleados) == 0:
-            print('No hay empleados en el sistema')
+            print('No hay empleados')
             print('-----------------------------------') 
             
     elif opcionMenu == 4:
