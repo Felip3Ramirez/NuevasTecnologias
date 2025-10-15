@@ -33,6 +33,7 @@ def generar_ventas(numeroVentas):
                 'cantidad':cantidad,
                 'vendedor':random.choice(vendedores),
                 'total':producto['precio']*cantidad
+                
             }
         )
     return(ventas)        
