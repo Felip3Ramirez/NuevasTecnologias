@@ -6,6 +6,7 @@ import{buscarUsuario,guardarUsuarios} from "../services/servicioUsuario.js"
 //capturar los datos del formulario
 let cajaNombreUsuario =document.getElementById("nombre")
 let cajaContrasenaUsuario=document.getElementById("contrasena")
+let cajaFechaUsuario=document.getElementById("fecha")
 let botonFormulario=document.getElementById("boton")
 
 botonFormulario.addEventListener("click",(evento)=>{
@@ -13,7 +14,7 @@ botonFormulario.addEventListener("click",(evento)=>{
     let datos={
         nombre:cajaNombreUsuario.value,
         contrasena:cajaContrasenaUsuario.value,
-        //fechaNacimiento: tarea
+        fechaNacimiento:cajaFechaUsuario.value
 
     }
     
