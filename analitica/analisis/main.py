@@ -80,52 +80,45 @@ tablaOrenada=pd.DataFrame(datos_simulados)
 
 # #Estudiantes
 # #yo quiero ver ventas con cantidad mayor que 10 y total mayor a 600000
-# #filtroCantidadTotal=(tablaOrenada['cantidad']>10) & (tablaOrenada['total']>600000)
 # queryEstudiante1 = tablaOrenada.query("cantidad > 10 and total > 600000")
 
 
 # #ver ventas de productos que contengan la palabra camisas
-# #filtroProductoCamisas=tablaOrenada['producto'].str.contains('Camisa')
 # queryEstudiante2 = tablaOrenada.query("producto.str.contains('Camisa', case=False)")
 
 # #ver ventas de vendedores cuyo nombre contiene la palabra juan
-# #filtroVendedorJuan=tablaOrenada['vendedor'].str.contains('Juan')
 # queryEstudiante3 = tablaOrenada.query("vendedor.str.contains('Juan', case=False)")
 
 # #Obtener las ventas con precio unitario mayor al promedio general
-# #filtroPrecioPromedio=tablaOrenada['precioUnitario']>tablaOrenada['precioUnitario'].mean()
 # precioPromedio = tablaOrenada['precioUnitario'].mean()
 # queryEstudiante4 = tablaOrenada.query("precioUnitario > @precioPromedio")
 
 # #Obtener las ventas con total mayor al doble del precio unitario
-# #filtroTotalDoblePrecio=tablaOrenada['total']>2*tablaOrenada['precioUnitario']
 # queryEstudiante5 = tablaOrenada.query("total > 2 * precioUnitario")
 # print(queryEstudiante5)
 
 # #ventas de pantalon p jen ajustado con cantidad mayor o igual a 2
-# #filtroProductoPantalonCantidad= (tablaOrenada['producto']=='Pantalones') & (tablaOrenada['cantidad']>=2)
 # queryEstudiante6 = tablaOrenada.query("producto == 'Pantalones' and cantidad >= 2")
 
 # #ver ventas mayor a 400000
-# #filtroTotalMayor400k=tablaOrenada['total']>400000
 # queryEstudiante7 = tablaOrenada.query("total > 400000")
 
 # #ventas de todos menos las de pablo gil
-# #filtroVendedorNoPablo=tablaOrenada['vendedor']!='Juan Pablo Gil'
 # queryEstudiante8 = tablaOrenada.query("vendedor != 'Juan Pablo Gil'")
 
 # #ventas ordenadas por total desendente
-# #filtroVentasOrdenadas=tablaOrenada.sort_values(by='total',ascending=False)
 # queryEstudiante9 = tablaOrenada.sort_values(by='total', ascending=False)
 
 # #Graficas a generar
 # #total de ventas por producto
 # generarBarra(tablaOrenada,"producto","total","Ventas totales por producto")
+
 # #total de ventas por vendedor
 # generarBarra(tablaOrenada, "vendedor","total","Ventas totales por vendedor")
-# #total de ventas con cantidad >=3
-# filtroUno=tablaOrenada.query("cantidad >= 3")
-# generarBarra(filtroUno,"producto","total","Ventas mayores a 3 productos")
+
+#total de ventas con cantidad >=3
+filtroUno=tablaOrenada.query("cantidad >= 3")
+generarBarra(filtroUno,"producto","total","Ventas mayores a 3 productos")
 
 # #TAREA
 # #Buscar como guardar la grafica generada en un archivo png
@@ -149,6 +142,6 @@ tablaOrenada=pd.DataFrame(datos_simulados)
 
 #Proponeme una grafica 
 #grafica de ventas por talla
-generarBarra(tablaOrenada,"talla","total","Ventas totales por talla","graficas/ventas_por_talla.png")
+#generarBarra(tablaOrenada,"talla","total","Ventas totales por talla","graficas/ventas_por_talla.png")
 
 
