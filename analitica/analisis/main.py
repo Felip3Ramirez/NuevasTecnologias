@@ -43,8 +43,8 @@ tablaOrenada=pd.DataFrame(datos_simulados)
 
 
 # #Yo puedo obtener de lo9s datos las ventas realizadas en enero de 2025
-queryUno=tablaOrenada.query("fecha >= '2025-01-01' and fecha <='2025-01-31'")
-crearTabla(queryUno,"reportes/tablaUno.html","ventas de enero",200)
+# queryUno=tablaOrenada.query("fecha >= '2025-01-01' and fecha <='2025-01-31'")
+# crearTabla(queryUno,"reportes/tablaUno.html","ventas de enero",200)
 
 # #Yo como administrador del punto de ventas puedo ver o obtener la cantidad mayor o igual a 3 de productos vendidos
 # queryDos=tablaOrenada.query("cantidad >= 3")
@@ -118,25 +118,37 @@ crearTabla(queryUno,"reportes/tablaUno.html","ventas de enero",200)
 # #filtroVentasOrdenadas=tablaOrenada.sort_values(by='total',ascending=False)
 # queryEstudiante9 = tablaOrenada.sort_values(by='total', ascending=False)
 
-#Graficas a generar
-#total de ventas por producto
-generarBarra(tablaOrenada,"producto","total","Ventas totales por producto")
-#total de ventas por vendedor
-generarBarra(tablaOrenada, "vendedor","total","Ventas totales por vendedor")
-#total de ventas con cantidad >=3
-filtroUno=tablaOrenada.query("cantidad >= 3")
-generarBarra(filtroUno,"producto","total","Ventas mayores a 3 productos")
+# #Graficas a generar
+# #total de ventas por producto
+# generarBarra(tablaOrenada,"producto","total","Ventas totales por producto")
+# #total de ventas por vendedor
+# generarBarra(tablaOrenada, "vendedor","total","Ventas totales por vendedor")
+# #total de ventas con cantidad >=3
+# filtroUno=tablaOrenada.query("cantidad >= 3")
+# generarBarra(filtroUno,"producto","total","Ventas mayores a 3 productos")
 
-#TAREA
-#Buscar como guardar la grafica generada en un archivo png
-#Escojer 3 filtros adicionales y generar las graficas correspondientes
-#total de ventas de producto caro (precio unitario >400000)
-filtroDos=tablaOrenada.query("")
-generarBarra(tablaOrenada,"producto","")
+# #TAREA
+# #Buscar como guardar la grafica generada en un archivo png
+# #Escojer 3 filtros adicionales y generar las graficas correspondientes
+# #total de ventas de producto caro (precio unitario >400000)
+# filtroDos=tablaOrenada.query("precioUnitario > 250000")
+# generarBarra(filtroDos,"producto","total","Ventas de productos caros (mas de 250k)","graficas/productos_caros.png")
 
-#Graficar las ventas de enero
-#Graficar las ventas de jens ajustados por vendedor
-#Unidades vendidas de tallas xl
+# #Graficar las ventas de enero
+# ventasEnero=tablaOrenada.query("fecha >= '2025-01-01' and fecha <='2025-01-31'")
+# generarBarra(ventasEnero,"producto","total","Ventas del mes de enero","graficas/ventas_enero.png")
+
+# #Graficar las ventas de jens ajustados por vendedor
+# ventasPantalones=tablaOrenada.query("producto == 'Pantalones'")
+# generarBarra(ventasPantalones,"vendedor","total","Ventas de Pantalones por vendedor","graficas/pantalones_vendedor.png")
+
+# #Unidades vendidas de tallas xl
+# ventasTallaXL=tablaOrenada.query("talla == 'XL'")
+# generarBarra(ventasTallaXL,"producto","cantidad","Cantidad de productos vendidos talla XL","graficas/talla_xl.png")
+
+
 #Proponeme una grafica 
+#grafica de ventas por talla
+generarBarra(tablaOrenada,"talla","total","Ventas totales por talla","graficas/ventas_por_talla.png")
 
 
