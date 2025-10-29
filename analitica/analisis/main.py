@@ -46,6 +46,14 @@ tablaOrenada=pd.DataFrame(datos_simulados)
 # queryUno=tablaOrenada.query("fecha >= '2025-01-01' and fecha <='2025-01-31'")
 # crearTabla(queryUno,"reportes/tablaUno.html","ventas de enero",200)
 
+ventasTallaXL=tablaOrenada.query("talla == 'XL'")
+crearTabla(ventasTallaXL,"reportes/tablaDos.html","talla Xl",100)
+
+# #Proponeme una grafica 
+# #grafica de ventas por talla
+# generarBarra(tablaOrenada,"talla","total","Ventas totales por talla","graficas/ventas_por_talla.png")
+
+
 # #Yo como administrador del punto de ventas puedo ver o obtener la cantidad mayor o igual a 3 de productos vendidos
 # queryDos=tablaOrenada.query("cantidad >= 3")
 
@@ -78,70 +86,70 @@ tablaOrenada=pd.DataFrame(datos_simulados)
 # queryDies=tablaOrenada.query("fecha >= '2025-01-01' and fecha <= '2025-03-31'")
 
 
-# #Estudiantes
-# #yo quiero ver ventas con cantidad mayor que 10 y total mayor a 600000
+# # #Estudiantes
+# # #yo quiero ver ventas con cantidad mayor que 10 y total mayor a 600000
 # queryEstudiante1 = tablaOrenada.query("cantidad > 10 and total > 600000")
 
 
-# #ver ventas de productos que contengan la palabra camisas
+# # #ver ventas de productos que contengan la palabra camisas
 # queryEstudiante2 = tablaOrenada.query("producto.str.contains('Camisa', case=False)")
 
-# #ver ventas de vendedores cuyo nombre contiene la palabra juan
+# # #ver ventas de vendedores cuyo nombre contiene la palabra juan
 # queryEstudiante3 = tablaOrenada.query("vendedor.str.contains('Juan', case=False)")
 
-# #Obtener las ventas con precio unitario mayor al promedio general
+# # #Obtener las ventas con precio unitario mayor al promedio general
 # precioPromedio = tablaOrenada['precioUnitario'].mean()
 # queryEstudiante4 = tablaOrenada.query("precioUnitario > @precioPromedio")
 
-# #Obtener las ventas con total mayor al doble del precio unitario
+# # #Obtener las ventas con total mayor al doble del precio unitario
 # queryEstudiante5 = tablaOrenada.query("total > 2 * precioUnitario")
 # print(queryEstudiante5)
 
-# #ventas de pantalon p jen ajustado con cantidad mayor o igual a 2
+# # #ventas de pantalon p jen ajustado con cantidad mayor o igual a 2
 # queryEstudiante6 = tablaOrenada.query("producto == 'Pantalones' and cantidad >= 2")
 
-# #ver ventas mayor a 400000
+# # #ver ventas mayor a 400000
 # queryEstudiante7 = tablaOrenada.query("total > 400000")
 
-# #ventas de todos menos las de pablo gil
+# # #ventas de todos menos las de pablo gil
 # queryEstudiante8 = tablaOrenada.query("vendedor != 'Juan Pablo Gil'")
 
-# #ventas ordenadas por total desendente
+# # #ventas ordenadas por total desendente
 # queryEstudiante9 = tablaOrenada.sort_values(by='total', ascending=False)
 
-# #Graficas a generar
-# #total de ventas por producto
+# # #Graficas a generar
+# # #total de ventas por producto
 # generarBarra(tablaOrenada,"producto","total","Ventas totales por producto")
 
-# #total de ventas por vendedor
+# # #total de ventas por vendedor
 # generarBarra(tablaOrenada, "vendedor","total","Ventas totales por vendedor")
 
-#total de ventas con cantidad >=3
-filtroUno=tablaOrenada.query("cantidad >= 3")
-generarBarra(filtroUno,"producto","total","Ventas mayores a 3 productos")
+# #total de ventas con cantidad >=3
+# filtroUno=tablaOrenada.query("cantidad >= 3")
+# generarBarra(filtroUno,"producto","total","Ventas mayores a 3 productos")
 
-# #TAREA
-# #Buscar como guardar la grafica generada en un archivo png
-# #Escojer 3 filtros adicionales y generar las graficas correspondientes
-# #total de ventas de producto caro (precio unitario >400000)
+# # #TAREA
+# # #Buscar como guardar la grafica generada en un archivo png
+# # #Escojer 3 filtros adicionales y generar las graficas correspondientes
+# # total de ventas de producto caro (precio unitario >400000)
 # filtroDos=tablaOrenada.query("precioUnitario > 250000")
-# generarBarra(filtroDos,"producto","total","Ventas de productos caros (mas de 250k)","graficas/productos_caros.png")
+# generarBarra(filtroDos,"producto","total","Ventas de productos caros","graficas/productos_caros.png")
 
-# #Graficar las ventas de enero
+# # #Graficar las ventas de enero
 # ventasEnero=tablaOrenada.query("fecha >= '2025-01-01' and fecha <='2025-01-31'")
 # generarBarra(ventasEnero,"producto","total","Ventas del mes de enero","graficas/ventas_enero.png")
 
-# #Graficar las ventas de jens ajustados por vendedor
+# # #Graficar las ventas de jens ajustados por vendedor
 # ventasPantalones=tablaOrenada.query("producto == 'Pantalones'")
 # generarBarra(ventasPantalones,"vendedor","total","Ventas de Pantalones por vendedor","graficas/pantalones_vendedor.png")
 
-# #Unidades vendidas de tallas xl
+# # #Unidades vendidas de tallas xl
 # ventasTallaXL=tablaOrenada.query("talla == 'XL'")
 # generarBarra(ventasTallaXL,"producto","cantidad","Cantidad de productos vendidos talla XL","graficas/talla_xl.png")
 
 
-#Proponeme una grafica 
-#grafica de ventas por talla
-#generarBarra(tablaOrenada,"talla","total","Ventas totales por talla","graficas/ventas_por_talla.png")
+# #Proponeme una grafica 
+# #grafica de ventas por talla
+# generarBarra(tablaOrenada,"talla","total","Ventas totales por talla","graficas/ventas_por_talla.png")
 
 
